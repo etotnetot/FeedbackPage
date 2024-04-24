@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Feedback.DAL\Feedback.DAL.csproj" />
+    <ProjectReference Include="..\Feedback.Shared\Feedback.Shared.csproj" />
+  </ItemGroup>
+
 </Project>

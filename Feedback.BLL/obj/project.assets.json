@@ -1,11 +1,46 @@
 {
   "version": 3,
   "targets": {
-    "net7.0": {}
+    "net7.0": {
+      "Feedback.DAL/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/Feedback.DAL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Feedback.DAL.dll": {}
+        }
+      },
+      "Feedback.Shared/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/Feedback.Shared.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Feedback.Shared.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Feedback.DAL/1.0.0": {
+      "type": "project",
+      "path": "../Feedback.DAL/Feedback.DAL.csproj",
+      "msbuildProject": "../Feedback.DAL/Feedback.DAL.csproj"
+    },
+    "Feedback.Shared/1.0.0": {
+      "type": "project",
+      "path": "../Feedback.Shared/Feedback.Shared.csproj",
+      "msbuildProject": "../Feedback.Shared/Feedback.Shared.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net7.0": []
+    "net7.0": [
+      "Feedback.DAL >= 1.0.0",
+      "Feedback.Shared >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\dimad\\.nuget\\packages\\": {}
@@ -33,7 +68,14 @@
       "frameworks": {
         "net7.0": {
           "targetAlias": "net7.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\dev\\FeedbackAPI\\Feedback.DAL\\Feedback.DAL.csproj": {
+              "projectPath": "C:\\dev\\FeedbackAPI\\Feedback.DAL\\Feedback.DAL.csproj"
+            },
+            "C:\\dev\\FeedbackAPI\\Feedback.Shared\\Feedback.Shared.csproj": {
+              "projectPath": "C:\\dev\\FeedbackAPI\\Feedback.Shared\\Feedback.Shared.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

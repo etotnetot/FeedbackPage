@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Feedback.Shared.Models;
+using Feedback.BLL.Services;
 
 namespace Feedback.API.Controllers
 {
@@ -8,11 +9,18 @@ namespace Feedback.API.Controllers
     [ApiController]
     public class FeedbackController : ControllerBase
     {
-        [HttpPost]
-        [Route("AddFeedback")]
-        public async Task<IActionResult> AddUser([FromBody] FeedbackMessage newUser)
+        private readonly IFeedbackService _feedbackService;
+
+        public FeedbackController(IFeedbackService feedbackService)
         {
-            return Ok();
+            _feedbackService = feedbackService;
+        }
+
+        [HttpPost]
+        [Route("SendFeedback")]
+        public async Task<IActionResult> SendFeedback([FromBody] FeedbackMessage newUser)
+        {
+            return Ok(_feedbackService.SendFeedback);
         }
     }
 }

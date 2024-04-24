@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace Feedback.DAL.Services
 {
-    public class DataService
+    public interface IDataService
     {
-        public DataService() { }
     }
 }
