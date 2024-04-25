@@ -108,6 +108,30 @@
           "Microsoft.AspNetCore.App"
         ]
       },
+      "Feedback.BLL/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Feedback.DAL": "1.0.0",
+          "Feedback.Shared": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Feedback.BLL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Feedback.BLL.dll": {}
+        }
+      },
+      "Feedback.DAL/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "compile": {
+          "bin/placeholder/Feedback.DAL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Feedback.DAL.dll": {}
+        }
+      },
       "Feedback.Shared/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
@@ -462,6 +486,16 @@
         "swashbuckle.aspnetcore.swaggerui.nuspec"
       ]
     },
+    "Feedback.BLL/1.0.0": {
+      "type": "project",
+      "path": "../Feedback.BLL/Feedback.BLL.csproj",
+      "msbuildProject": "../Feedback.BLL/Feedback.BLL.csproj"
+    },
+    "Feedback.DAL/1.0.0": {
+      "type": "project",
+      "path": "../Feedback.DAL/Feedback.DAL.csproj",
+      "msbuildProject": "../Feedback.DAL/Feedback.DAL.csproj"
+    },
     "Feedback.Shared/1.0.0": {
       "type": "project",
       "path": "../Feedback.Shared/Feedback.Shared.csproj",
@@ -470,6 +504,7 @@
   },
   "projectFileDependencyGroups": {
     "net7.0": [
+      "Feedback.BLL >= 1.0.0",
       "Feedback.Shared >= 1.0.0",
       "Microsoft.AspNetCore.OpenApi >= 7.0.3",
       "Swashbuckle.AspNetCore >= 6.4.0"
@@ -502,6 +537,9 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "projectReferences": {
+            "C:\\dev\\FeedbackAPI\\Feedback.BLL\\Feedback.BLL.csproj": {
+              "projectPath": "C:\\dev\\FeedbackAPI\\Feedback.BLL\\Feedback.BLL.csproj"
+            },
             "C:\\dev\\FeedbackAPI\\Feedback.Shared\\Feedback.Shared.csproj": {
               "projectPath": "C:\\dev\\FeedbackAPI\\Feedback.Shared\\Feedback.Shared.csproj"
             }
