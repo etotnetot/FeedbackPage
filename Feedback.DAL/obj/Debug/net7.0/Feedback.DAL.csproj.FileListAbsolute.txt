@@ -10,3 +10,6 @@ C:\dev\FeedbackAPI\Feedback.DAL\obj\Debug\net7.0\Feedback.DAL.dll
 C:\dev\FeedbackAPI\Feedback.DAL\obj\Debug\net7.0\refint\Feedback.DAL.dll
 C:\dev\FeedbackAPI\Feedback.DAL\obj\Debug\net7.0\Feedback.DAL.pdb
 C:\dev\FeedbackAPI\Feedback.DAL\obj\Debug\net7.0\ref\Feedback.DAL.dll
+C:\dev\FeedbackAPI\Feedback.DAL\bin\Debug\net7.0\Feedback.Shared.dll
+C:\dev\FeedbackAPI\Feedback.DAL\bin\Debug\net7.0\Feedback.Shared.pdb
+C:\dev\FeedbackAPI\Feedback.DAL\obj\Debug\net7.0\Feedback.DAL.csproj.CopyComplete

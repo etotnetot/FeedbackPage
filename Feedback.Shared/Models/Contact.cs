@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace Feedback.Shared.Models
 {
-    internal class Contact
+    public class Contact
     {
         [Key]
-        public int Id { get; set; }
+        public int ContactID { get; set; }
 
-        public string Name { get; set; }
+        public string? ContactName { get; set; }
 
-        public string Email { get; set; }
+        public string? Email { get; set; }
 
-        public string PhoneNumber { get; set; }
+        public string? PhoneNumber { get; set; }
     }
 }
