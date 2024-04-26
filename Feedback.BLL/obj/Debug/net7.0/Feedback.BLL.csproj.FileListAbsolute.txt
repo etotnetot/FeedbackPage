@@ -3,3 +3,15 @@ C:\dev\FeedbackAPI\Feedback.BLL\obj\Debug\net7.0\Feedback.BLL.GeneratedMSBuildEd
 C:\dev\FeedbackAPI\Feedback.BLL\obj\Debug\net7.0\Feedback.BLL.AssemblyInfoInputs.cache
 C:\dev\FeedbackAPI\Feedback.BLL\obj\Debug\net7.0\Feedback.BLL.AssemblyInfo.cs
 C:\dev\FeedbackAPI\Feedback.BLL\obj\Debug\net7.0\Feedback.BLL.csproj.CoreCompileInputs.cache
+C:\dev\FeedbackAPI\Feedback.BLL\bin\Debug\net7.0\Feedback.BLL.deps.json
+C:\dev\FeedbackAPI\Feedback.BLL\bin\Debug\net7.0\Feedback.BLL.dll
+C:\dev\FeedbackAPI\Feedback.BLL\bin\Debug\net7.0\Feedback.BLL.pdb
+C:\dev\FeedbackAPI\Feedback.BLL\bin\Debug\net7.0\Feedback.DAL.dll
+C:\dev\FeedbackAPI\Feedback.BLL\bin\Debug\net7.0\Feedback.Shared.dll
+C:\dev\FeedbackAPI\Feedback.BLL\bin\Debug\net7.0\Feedback.DAL.pdb
+C:\dev\FeedbackAPI\Feedback.BLL\bin\Debug\net7.0\Feedback.Shared.pdb
+C:\dev\FeedbackAPI\Feedback.BLL\obj\Debug\net7.0\Feedback.BLL.csproj.CopyComplete
+C:\dev\FeedbackAPI\Feedback.BLL\obj\Debug\net7.0\Feedback.BLL.dll
+C:\dev\FeedbackAPI\Feedback.BLL\obj\Debug\net7.0\refint\Feedback.BLL.dll
+C:\dev\FeedbackAPI\Feedback.BLL\obj\Debug\net7.0\Feedback.BLL.pdb
+C:\dev\FeedbackAPI\Feedback.BLL\obj\Debug\net7.0\ref\Feedback.BLL.dll

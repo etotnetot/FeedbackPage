@@ -11,16 +11,20 @@ namespace Feedback.API.Controllers
     {
         private readonly IFeedbackService _feedbackService;
 
-        public FeedbackController(IFeedbackService feedbackService)
-        {
-            _feedbackService = feedbackService;
-        }
+        public FeedbackController(IFeedbackService feedbackService) => _feedbackService = feedbackService;
 
         [HttpPost]
         [Route("SendFeedback")]
-        public async Task<IActionResult> SendFeedback([FromBody] FeedbackMessage newUser)
+        public async Task<IActionResult> SendFeedback([FromBody] FeedbackMessageInputModel feedbackMessage)
         {
-            return Ok(_feedbackService.SendFeedback);
+            return Ok(_feedbackService.SendFeedback(feedbackMessage));
+        }
+
+        [HttpPost]
+        [Route("AddContact")]
+        public async Task<IActionResult> AddContact([FromBody] Contact newUser)
+        {
+            return Ok(_feedbackService.AddContact(newUser));
         }
     }
 }

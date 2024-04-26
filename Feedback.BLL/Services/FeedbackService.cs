@@ -10,16 +10,14 @@ namespace Feedback.BLL.Services
 {
     public class FeedbackService : IFeedbackService
     {
-        private readonly IDataService _dataService;
+        private readonly IFeedbackRepository _dataService;
 
-        public FeedbackService(IDataService dataService) { 
-            _dataService = dataService;
-        }
+        public FeedbackService(IFeedbackRepository dataService) => _dataService = dataService;
 
-        public async Task<FeedbackMessage> SendFeedback(FeedbackMessage feedbackMessage)
+        public async Task<FeedbackMessage> SendFeedback(FeedbackMessageInputModel feedbackMessage)
         {
             if (!CheckIfContactExists(feedbackMessage.PhoneNumber, feedbackMessage.Email))
-                _dataService.AddContact(feedbackMessage.Name, feedbackMessage.Email, feedbackMessage.PhoneNumber);
+                await _dataService.AddContact(feedbackMessage.ContactName, feedbackMessage.Email, feedbackMessage.PhoneNumber);
 
             return await _dataService.AddFeedback(feedbackMessage); 
         }
@@ -27,10 +25,15 @@ namespace Feedback.BLL.Services
         //Если совокупный набор данных(Email + Телефон) совпадают, то новый контакт в таблицу не добавлять.
         public bool CheckIfContactExists(string phoneNumber, string emailAddress)
         {
-            if (_dataService.GetContact(phoneNumber).Email == emailAddress)
+            if (_dataService.GetContact(phoneNumber).Result.Email == emailAddress)
                 return true;
 
             return false;
+        }
+
+        public async Task<Contact> AddContact(Contact contact)
+        {
+            return await _dataService.AddContact(contact.ContactName, contact.Email, contact.PhoneNumber);
         }
     }
 }

@@ -17,7 +17,6 @@ C:\dev\FeedbackAPI\Feedback.API\obj\Debug\net7.0\Feedback.API.GeneratedMSBuildEd
 C:\dev\FeedbackAPI\Feedback.API\obj\Debug\net7.0\Feedback.API.AssemblyInfoInputs.cache
 C:\dev\FeedbackAPI\Feedback.API\obj\Debug\net7.0\Feedback.API.AssemblyInfo.cs
 C:\dev\FeedbackAPI\Feedback.API\obj\Debug\net7.0\Feedback.API.csproj.CoreCompileInputs.cache
-C:\dev\FeedbackAPI\Feedback.API\obj\Debug\net7.0\Feedback.API.MvcApplicationPartsAssemblyInfo.cs
 C:\dev\FeedbackAPI\Feedback.API\obj\Debug\net7.0\Feedback.API.MvcApplicationPartsAssemblyInfo.cache
 C:\dev\FeedbackAPI\Feedback.API\obj\Debug\net7.0\staticwebassets\msbuild.Feedback.API.Microsoft.AspNetCore.StaticWebAssets.props
 C:\dev\FeedbackAPI\Feedback.API\obj\Debug\net7.0\staticwebassets\msbuild.build.Feedback.API.props
@@ -33,3 +32,17 @@ C:\dev\FeedbackAPI\Feedback.API\obj\Debug\net7.0\refint\Feedback.API.dll
 C:\dev\FeedbackAPI\Feedback.API\obj\Debug\net7.0\Feedback.API.pdb
 C:\dev\FeedbackAPI\Feedback.API\obj\Debug\net7.0\Feedback.API.genruntimeconfig.cache
 C:\dev\FeedbackAPI\Feedback.API\obj\Debug\net7.0\ref\Feedback.API.dll
+C:\dev\FeedbackAPI\Feedback.API\bin\Debug\net7.0\Feedback.BLL.dll
+C:\dev\FeedbackAPI\Feedback.API\bin\Debug\net7.0\Feedback.DAL.dll
+C:\dev\FeedbackAPI\Feedback.API\bin\Debug\net7.0\Feedback.BLL.pdb
+C:\dev\FeedbackAPI\Feedback.API\bin\Debug\net7.0\Feedback.DAL.pdb
+C:\dev\FeedbackAPI\Feedback.API\obj\Debug\net7.0\Feedback.API.MvcApplicationPartsAssemblyInfo.cs
+C:\dev\FeedbackAPI\Feedback.API\bin\Debug\net7.0\Dapper.dll
+C:\dev\FeedbackAPI\Feedback.API\bin\Debug\net7.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\dev\FeedbackAPI\Feedback.API\bin\Debug\net7.0\Microsoft.Extensions.Primitives.dll
+C:\dev\FeedbackAPI\Feedback.API\bin\Debug\net7.0\System.Data.SqlClient.dll
+C:\dev\FeedbackAPI\Feedback.API\bin\Debug\net7.0\runtimes\win-arm64\native\sni.dll
+C:\dev\FeedbackAPI\Feedback.API\bin\Debug\net7.0\runtimes\win-x64\native\sni.dll
+C:\dev\FeedbackAPI\Feedback.API\bin\Debug\net7.0\runtimes\win-x86\native\sni.dll
+C:\dev\FeedbackAPI\Feedback.API\bin\Debug\net7.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\dev\FeedbackAPI\Feedback.API\bin\Debug\net7.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll

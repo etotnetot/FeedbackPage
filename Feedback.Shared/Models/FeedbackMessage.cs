@@ -12,14 +12,14 @@ namespace Feedback.Shared.Models
         [Key]
         public int FeedbackMessageID { get; set; }
 
-        public string Name { get; set; }
+        public string? ContactName { get; set; }
 
-        public string Email { get; set; }
+        public string? Email { get; set; }
 
-        public string PhoneNumber { get; set; }
+        public string? PhoneNumber { get; set; }
 
-        public string Topic { get; set; }
+        public string? Topic { get; set; }
 
-        public string Message { get; set; }
+        public string? Message { get; set; }
     }
 }
