@@ -1,9 +1,4 @@
 ﻿using Feedback.Shared.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Feedback.BLL.Services
 {
@@ -14,5 +9,7 @@ namespace Feedback.BLL.Services
         public Task<Contact> AddContact(Contact contact);
 
         public bool CheckIfContactExists(string phoneNumber, string emailAddress);
+
+        public Task<IEnumerable<Topic>> GetTopics();
     }
 }

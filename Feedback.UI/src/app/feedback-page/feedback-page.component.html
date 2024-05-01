@@ -1,0 +1,29 @@
+<div *ngIf="!this.service.formSubmitted" class="justify-content-center align-items-center mt-5" style="width: 550px; background-color: beige; border-radius: 10px; box-shadow: 3px 4px 5px grey;">
+    <div class="text text-center" style="padding-top: 15px;">
+        <h2>
+            Напишите нам
+        </h2>
+    </div>
+    
+    <div class="mt-5 d-flex justify-content-center" style="margin-top: 25px !important; display: contents;">
+        <app-feedback-page-form/>
+    </div>
+</div>
+
+<div *ngIf="this.service.formSubmitted" class=" mt-5" style=" width: 550px; background-color: beige; border-radius: 10px; box-shadow: 3px 4px 5px grey;">
+    <div class="text text-center" style="padding-top: 15px;">
+        <h2>
+            Информация о сообщении:
+        </h2>
+    </div>
+    
+    <div class="mt-5 d-flex justify-content-center" style="margin-left: 80px; font-size: 18px; justify-content: space-between !important;">
+        <div>
+            <p><b>Имя:</b> {{ this.service.formData.ContactName }}</p>
+            <p><b>Телефон:</b> {{ this.service.formData.PhoneNumber }}</p>
+            <p><b>Email:</b> {{  this.service.formData.Email }}</p>
+            <p><b>Тема:</b> {{  this.service.topicData.topicName }}</p>
+            <p><b>Сообщение:</b> {{  this.service.formData.Message }}</p>
+        </div>
+    </div>
+</div>

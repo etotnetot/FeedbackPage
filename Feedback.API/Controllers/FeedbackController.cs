@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Feedback.Shared.Models;
 using Feedback.BLL.Services;
 
@@ -17,14 +16,21 @@ namespace Feedback.API.Controllers
         [Route("SendFeedback")]
         public async Task<IActionResult> SendFeedback([FromBody] FeedbackMessageInputModel feedbackMessage)
         {
-            return Ok(_feedbackService.SendFeedback(feedbackMessage));
+            return Ok(await _feedbackService.SendFeedback(feedbackMessage));
         }
 
         [HttpPost]
         [Route("AddContact")]
         public async Task<IActionResult> AddContact([FromBody] Contact newUser)
         {
-            return Ok(_feedbackService.AddContact(newUser));
+            return Ok(await _feedbackService.AddContact(newUser));
+        }
+
+        [HttpGet]
+        [Route("GetTopics")]
+        public async Task<IActionResult> GetTopics()
+        {
+            return Ok(await _feedbackService.GetTopics());
         }
     }
 }

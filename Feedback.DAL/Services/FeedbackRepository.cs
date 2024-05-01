@@ -1,8 +1,6 @@
 ﻿using Feedback.Shared.Models;
 using System.Data;
 using Dapper;
-using System.Xml.Linq;
-using System.Data.SqlClient;
 
 namespace Feedback.DAL.Services
 {
@@ -25,9 +23,6 @@ namespace Feedback.DAL.Services
 
             using (var connection = _dataContext.CreateConnection())
             {
-                /*connection.Open();
-                Console.WriteLine("ServerVersion: {0}", connection.State);
-                Console.WriteLine("State: {0}", connection.State);*/
                 var id = await connection.QuerySingleAsync<int>(query, parameters);
 
                 var createdContact = new Contact
@@ -49,7 +44,7 @@ namespace Feedback.DAL.Services
 
             var parameters = new DynamicParameters();
 
-            parameters.Add("ContactID", GetContact(feedbackMessage.PhoneNumber).Result.ContactID, DbType.Int32);
+            parameters.Add("ContactID", GetContact(feedbackMessage.PhoneNumber, feedbackMessage.Email).Result.ContactID, DbType.Int32);
             parameters.Add("TopicID", feedbackMessage.TopicID, DbType.Int32);
             parameters.Add("FeedbackMessage", feedbackMessage.Message, DbType.String);
 
@@ -70,13 +65,15 @@ namespace Feedback.DAL.Services
             }
         }
 
-        public async Task<Contact> GetContact(string phoneNumber)
+        public async Task<Contact> GetContact(string phoneNumber, string email)
         {
-            string query = @"SELECT * FROM contacts WHERE PhoneNumber = @phoneNumber";
+            string query = @"SELECT * FROM contacts WHERE PhoneNumber = @phoneNumber AND Email = @email";
 
             using (var connection = _dataContext.CreateConnection())
             {
-                return await connection.QuerySingleOrDefaultAsync<Contact>(query, new { phoneNumber = phoneNumber });
+                var contact = await connection.QuerySingleOrDefaultAsync<Contact>(query, new { phoneNumber = phoneNumber, email = email });
+
+                return (Contact)contact;
             }
         }
 
@@ -101,6 +98,18 @@ namespace Feedback.DAL.Services
                 var feedbackMessages = await connection.QueryAsync<FeedbackMessage>(query);
 
                 return feedbackMessages.ToList();
+            }
+        }
+
+        public async Task<IEnumerable<Topic>> GetTopics()
+        {
+            string query = "SELECT * FROM Topics";
+
+            using (var connection = _dataContext.CreateConnection())
+            {
+                var topics = await connection.QueryAsync<Topic>(query);
+
+                return topics.ToList();
             }
         }
     }
