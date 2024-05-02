@@ -6,13 +6,13 @@ namespace Feedback.DAL.Services
     {
         public Task<Contact> AddContact(string name, string email, string phoneNumber);
 
-        public Task<FeedbackMessage> AddFeedback(FeedbackMessageInputModel feedbackMessage);
+        public Task<FeedbackMessageModel> AddFeedback(FeedbackMessageInputModel feedbackMessage);
 
         public Task<Contact> GetContact(string phoneNumber, string email);
 
         public Task<IEnumerable<Contact>> GetContacts();
 
-        public Task<IEnumerable<FeedbackMessage>> GetFeedbacks();
+        public Task<IEnumerable<FeedbackMessageModel>> GetFeedbacks();
 
         public Task<IEnumerable<Topic>> GetTopics();
     }

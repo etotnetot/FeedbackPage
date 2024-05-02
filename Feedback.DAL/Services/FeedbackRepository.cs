@@ -10,6 +10,12 @@ namespace Feedback.DAL.Services
 
         public FeedbackRepository(DataContext dataContext) => _dataContext = dataContext;
 
+        /// <summary>
+        /// Adds new contact to database.
+        /// </summary>
+        /// <param name="name">Name of the user.</param>
+        /// <param name="email">Email of the user.</param>
+        /// <param name="phoneNumber">Phone number of the user.</param>
         public async Task<Contact> AddContact(string name, string email, string phoneNumber)
         {
             string query = "INSERT INTO contacts (ContactName, Email, PhoneNumber) " +
@@ -37,7 +43,12 @@ namespace Feedback.DAL.Services
             }
         }
 
-        public async Task<FeedbackMessage> AddFeedback(FeedbackMessageInputModel feedbackMessage)
+        /// <summary>
+        /// Adds new feedback to database.
+        /// </summary>
+        /// <param name="feedbackMessage">Input data.</param>
+        /// <returns></returns>
+        public async Task<FeedbackMessageModel> AddFeedback(FeedbackMessageInputModel feedbackMessage)
         {
             string query = "INSERT INTO feedback_messages (ContactID, TopicID, FeedbackMessage) " +
                 "VALUES (@ContactID, @TopicID, @FeedbackMessage)" + "SELECT CAST(SCOPE_IDENTITY() AS int)";
@@ -52,19 +63,23 @@ namespace Feedback.DAL.Services
             {
                 var id = await connection.QuerySingleAsync<int>(query, parameters);
 
-                var createdFeedback = new FeedbackMessage
+                var createdFeedback = new FeedbackMessageModel
                 {
                     FeedbackMessageID = id,
-                    Topic = Convert.ToString(feedbackMessage.TopicID),
-                    Email = feedbackMessage.Email,
-                    PhoneNumber = feedbackMessage.PhoneNumber,
-                    Message = feedbackMessage.Message
+                    Contact = GetContact(feedbackMessage.PhoneNumber, feedbackMessage.Email).Result,
+                    Topic = GetTopics().Result.FirstOrDefault(topic => topic.TopicID == feedbackMessage.TopicID),
+                    FeedbackMessage = feedbackMessage.Message
                 };
 
                 return createdFeedback;
             }
         }
 
+        /// <summary>
+        /// Retrieves the contact from database.
+        /// </summary>
+        /// <param name="phoneNumber">Phone number of the contact.</param>
+        /// <param name="email">Email of the contact.</param></param>
         public async Task<Contact> GetContact(string phoneNumber, string email)
         {
             string query = @"SELECT * FROM contacts WHERE PhoneNumber = @phoneNumber AND Email = @email";
@@ -73,10 +88,13 @@ namespace Feedback.DAL.Services
             {
                 var contact = await connection.QuerySingleOrDefaultAsync<Contact>(query, new { phoneNumber = phoneNumber, email = email });
 
-                return (Contact)contact;
+                return contact;
             }
         }
 
+        /// <summary>
+        /// Retrieves all contacts from database.
+        /// </summary>
         public async Task<IEnumerable<Contact>> GetContacts()
         {
             string query = "SELECT * FROM Contacts";
@@ -89,18 +107,33 @@ namespace Feedback.DAL.Services
             }
         }
 
-        public async Task<IEnumerable<FeedbackMessage>> GetFeedbacks()
+        /// <summary>
+        /// Retrieves all feedbacks from database.
+        /// </summary>
+        public async Task<IEnumerable<FeedbackMessageModel>> GetFeedbacks()
         {
-            string query = "SELECT * FROM feedback_messages";
+            var query = @"SELECT f.FeedbackMessageID, f.ContactID, f.TopicID, f.FeedbackMessage, c.ContactID, c.ContactName,
+                            c.Email, c.PhoneNumber, t.TopicID, t.TopicName
+                            FROM feedback_messages f 
+                            INNER JOIN contacts c ON f.ContactID = c.ContactID
+                            INNER JOIN topics t ON f.TopicID = t.TopicID";
 
             using (var connection = _dataContext.CreateConnection())
             {
-                var feedbackMessages = await connection.QueryAsync<FeedbackMessage>(query);
+                var feedbackMessages = connection.QueryAsync<FeedbackMessageModel, Contact, Topic, FeedbackMessageModel>(query, (feedbackMessage, contact, topic) => {
+                    feedbackMessage.Contact = contact;
+                    feedbackMessage.Topic = topic;
 
-                return feedbackMessages.ToList();
+                    return feedbackMessage;
+                }, splitOn: "ContactID, TopicID");     
+
+                return feedbackMessages.Result;
             }
         }
 
+        /// <summary>
+        /// Retrieves all topics from database.
+        /// </summary>
         public async Task<IEnumerable<Topic>> GetTopics()
         {
             string query = "SELECT * FROM Topics";

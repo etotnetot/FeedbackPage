@@ -26,13 +26,4 @@ export class FeedbackService {
   getTopics() {
     return this.http.get<Topic[]>(environment.apiBaseUrl + '/GetTopics')
   }
-
-  getTopicById(id: number): Observable<string | undefined> {
-    return this.http.get<Topic[]>(environment.apiBaseUrl + '/GetTopics').pipe(
-      map((topics: Topic[]) => {
-        const topic = topics.find(topic => topic.topicID === id);
-        return topic ? topic.topicName : undefined;
-      })
-    );
-  }
 }

@@ -12,6 +12,10 @@ namespace Feedback.API.Controllers
 
         public FeedbackController(IFeedbackService feedbackService) => _feedbackService = feedbackService;
 
+        /// <summary>
+        /// Adds new feedback to database.
+        /// </summary>
+        /// <param name="feedbackMessage">Feedback message to add.</param>
         [HttpPost]
         [Route("SendFeedback")]
         public async Task<IActionResult> SendFeedback([FromBody] FeedbackMessageInputModel feedbackMessage)
@@ -19,6 +23,10 @@ namespace Feedback.API.Controllers
             return Ok(await _feedbackService.SendFeedback(feedbackMessage));
         }
 
+        /// <summary>
+        /// Adds new contact to database.
+        /// </summary>
+        /// <param name="newUser">Contact to add.</param>
         [HttpPost]
         [Route("AddContact")]
         public async Task<IActionResult> AddContact([FromBody] Contact newUser)
@@ -26,11 +34,24 @@ namespace Feedback.API.Controllers
             return Ok(await _feedbackService.AddContact(newUser));
         }
 
+        /// <summary>
+        /// Retrieves all topics from database.
+        /// </summary>
         [HttpGet]
         [Route("GetTopics")]
         public async Task<IActionResult> GetTopics()
         {
             return Ok(await _feedbackService.GetTopics());
+        }
+
+        /// <summary>
+        /// Retrieves all feedbacks from database.
+        /// </summary>
+        [HttpGet]
+        [Route("GetFeedbacks")]
+        public async Task<IActionResult> GetFeedbacks()
+        {
+            return Ok(await _feedbackService.GetFeedbacks());
         }
     }
 }

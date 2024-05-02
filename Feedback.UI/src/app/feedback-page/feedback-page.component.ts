@@ -8,6 +8,7 @@ import { Injectable } from '@angular/core';
   styles: [
   ]
 })
+
 export class FeedbackPageComponent  {
   constructor (public service: FeedbackService) { }
 }

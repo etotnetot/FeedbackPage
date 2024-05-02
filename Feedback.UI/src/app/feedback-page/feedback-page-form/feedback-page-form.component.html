@@ -1,7 +1,10 @@
-<form #form="ngForm" (submit)="onSubmit(form)" *ngIf="!this.service.formSubmitted" [class.submitted]="service.formSubmitted" novalidate autocomplete="off" style=" margin-bottom: 30px !important;">
+<form #form="ngForm" (submit)="onSubmit(form)" *ngIf="!this.service.formSubmitted" [class.submitted]="service.formSubmitted" novalidate autocomplete="off" style="margin-bottom: 30px !important;">
   <div class="form-group row" style="width: 500px;">
     <label for="inputName" style="padding: 6px 1px 25px;" 
-    class="font-weight-bold col-sm-2 col-form-label">Ваше имя:</label>
+    class="font-weight-bold col-sm-2 col-form-label">
+      Ваше имя:
+    </label>
+
     <div class="col-sm-10">
       <div class="input-group mb-2">
       <div class="input-group-prepend">
@@ -11,12 +14,13 @@
       #ContactName="ngModel" 
       [(ngModel)]="service.formData.ContactName"
       required minlength="2" maxlength="50"></div>
+
       <div *ngIf="ContactName.invalid && (ContactName.dirty || ContactName.touched)" class="alert alert-danger">
         <div *ngIf="ContactName.errors?.['required']">
-          Заполните это поле
+          Заполните это поле!
         </div>
         <div *ngIf="ContactName.errors?.['minlength'] || ContactName.errors?.['maxlength']">
-          Имя должно содержать от 2 до 50 символов
+          Имя должно содержать от 2 до 50 символов!
         </div>
       </div>
     </div>
@@ -33,12 +37,13 @@
       #Email="ngModel" 
       [(ngModel)]="service.formData.Email"
       required email></div>
+      
       <div *ngIf="Email.invalid && (Email.dirty || Email.touched)" class="alert alert-danger">
         <div *ngIf="Email.errors?.['required']">
-          Заполните это поле
+          Заполните это поле!
         </div>
         <div *ngIf="Email.errors?.['email']">
-          Неверный формат Email
+          Неверный формат Email!
         </div>
       </div>
     </div>
@@ -58,10 +63,10 @@
       
       <div *ngIf="PhoneNumber.invalid && (PhoneNumber.dirty || PhoneNumber.touched)" class="alert alert-danger">
         <div *ngIf="PhoneNumber.errors?.['required']">
-          Заполните это поле
+          Заполните это поле!
         </div>
         <div *ngIf="PhoneNumber.errors?.['mask']">
-          Неверный формат телефона
+          Неверный формат!
         </div>
       </div>
     </div>
@@ -111,8 +116,9 @@
         font-size: 24px;
         background-image: url(https://thumbs.dreamstime.com/b/orange-grid-white-lines-chess-pattern-bright-orange-white-cell-bright-geometric-pattern-background-135293991.jpg);
         text-align: center;
-        line-height: 50px;">{{ captchaText }}</div>
-        
+        line-height: 50px;">
+          {{ captchaText }}
+        </div>
       </div>
     </div>  
     <div *ngIf="isCaptchaInvalid" class="alert alert-danger" style="margin-top: 20px;  margin-bottom: 1px;">
