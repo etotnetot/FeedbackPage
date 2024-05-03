@@ -26,12 +26,12 @@ namespace Feedback.API.Controllers
         /// <summary>
         /// Adds new contact to database.
         /// </summary>
-        /// <param name="newUser">Contact to add.</param>
+        /// <param name="newContact">Contact to add.</param>
         [HttpPost]
         [Route("AddContact")]
-        public async Task<IActionResult> AddContact([FromBody] Contact newUser)
+        public async Task<IActionResult> AddContact([FromBody] Contact newContact)
         {
-            return Ok(await _feedbackService.AddContact(newUser));
+            return Ok(await _feedbackService.AddContact(newContact));
         }
 
         /// <summary>

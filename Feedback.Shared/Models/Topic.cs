@@ -1,4 +1,6 @@
-﻿namespace Feedback.Shared.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Feedback.Shared.Models
 {
     /// <summary>
     /// Topic model.
@@ -8,6 +10,7 @@
         /// <summary>
         /// Id of the topic.
         /// </summary>
+        [Key]
         public int TopicID { get; set; }
 
         /// <summary>
