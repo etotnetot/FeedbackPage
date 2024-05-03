@@ -5,8 +5,7 @@ import { Injectable } from '@angular/core';
 @Component({
   selector: 'app-feedback-page',
   templateUrl: './feedback-page.component.html',
-  styles: [
-  ]
+  styles: []
 })
 
 export class FeedbackPageComponent  {

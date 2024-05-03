@@ -15,17 +15,14 @@ import { Validators } from '@angular/forms';
 @Component({
   selector: 'app-feedback-page-form',
   templateUrl: './feedback-page-form.component.html',
-  styles: [
-  ]
+  styles: []
 })
 
 export class FeedbackPageFormComponent implements OnInit {
   captchaText!: string;
   userInput!: string;
-  errorMessage!: string;
   topicList!: Observable<Topic[]>;
   feedbackForm!: FormGroup;
-  showSavedMessage!: boolean;
   isCaptchaInvalid!: boolean;
   
   constructor (public service: FeedbackService) { }
